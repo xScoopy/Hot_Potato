@@ -1,0 +1,23 @@
+{
+  "name": "hot_potato",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xScoopy/Hot_Potato.git"
+  },
+  "author": "Jeremiah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xScoopy/Hot_Potato/issues"
+  },
+  "homepage": "https://github.com/xScoopy/Hot_Potato#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.2.0"
+  }
+}
