@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/static/index.html')
 })
 
+io.on('connection', (socket) => {
+    //where our emits will happen
+    return 0 //just to stop errors
+})
+
 server.listen(3000, ()  => {
     console.log('Listening for requests!')
 })
