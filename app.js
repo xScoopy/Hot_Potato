@@ -6,8 +6,10 @@ const server = http.createServer(app)
 const { Server } = require('socket.io')
 const io = new Server(server)
 
+app.use("/static", express.static('./static'))
+
 app.get('/', (req, res) => {
-    res.sendFile('./static/index.html')
+    res.sendFile(__dirname + '/static/index.html')
 })
 
 server.listen(3000, ()  => {
