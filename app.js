@@ -17,9 +17,11 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     //where our emits will happen
-    socket.broadcast.emit("player_join")
+    // socket.broadcast.emit("player_join")
+
+    socket.broadcast.emit("welcome_user")
+    socket.emit("player_join")
     // player_join and player_ready
-    return 0 //just to stop errors
 })
 
 server.listen(3000, ()  => {
