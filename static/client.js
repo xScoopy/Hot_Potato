@@ -26,7 +26,11 @@ socket.on("some_event_here", () => {
 
 socket.on("player_join", () => {
   //send a message to alerts
+  let item = document.createElement("li")
+  item.textContent = "A new player has joined"
+  alerts.append(item)
   //prompt them to enter email
+  alert("Please enter your email and ready up!")
 });
 
 socket.on("player_ready", () => {});
