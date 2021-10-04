@@ -51,4 +51,16 @@ socket.on("player_ready", () => {
   alerts.append(item)
 });
 
+socket.on("timer_start", () => {
+  //send a message to alerts
+  let item = document.createElement("li")
+  item.textContent = "Hot Potato!"
+  alerts.append(item)
+});
 
+socket.on("timer_end", () => {
+  //send a message to alerts
+  let item = document.createElement("li")
+  item.textContent = "Game over!"
+  alerts.append(item)
+});

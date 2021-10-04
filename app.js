@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 
 io.on('connection', (io, socket, onlineUsers) => {
     //where our emits will happen
+    // player_join and player_ready
     return 0 //just to stop errors
 })
 
