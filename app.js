@@ -15,8 +15,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/static/index.html')
 })
 
-io.on('connection', (io, socket, onlineUsers) => {
+io.on('connection', (socket) => {
     //where our emits will happen
+    socket.broadcast.emit("player_join")
     // player_join and player_ready
     return 0 //just to stop errors
 })
