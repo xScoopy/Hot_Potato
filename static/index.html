@@ -5,8 +5,27 @@
     <link rel="stylesheet" href="static/style.css">
   </head>
   <body>
-    <h1 id="heyWorld">hello world</h1>
-    <ul id="alerts"></ul>
+    <h1 class="main-title">Let's Play Hot Potato!</h1>
+    <div class="top-area">
+      <div class="alerts">
+          <ul id="alerts" class="alerts-list">
+            <li id="alerts-title">Alerts:</li>
+          </ul>
+      </div>
+      <div class="ready-area">
+        <form class="ready-form" id="form">
+          <label for="email-input" class="email-label">Email</label>
+          <input type="email" id="email" name="email-input" placeholder="Your email...">
+          <button class="ready-button">Ready</button>
+        </form>
+      </div>
+    </div>
+    <div class="bottom-area">
+      <div class="button-holder">
+        <button class="pass-button">Pass</button>
+      </div>
+    </div>
+    
     <script src="/socket.io/socket.io.js""></script>
     <script src="/static/client.js"></script>
   </body>
