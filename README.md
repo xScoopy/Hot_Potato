@@ -27,7 +27,7 @@ Note: Since this project is not deployed, you will not be able to play with anot
 
 ## Mockup
 
-<img width="1437" alt="Figma Mockup" src="">
+<img width="1437" alt="Figma Mockup" src="https://github.com/xScoopy/Hot_Potato/blob/main/Mockup.png?raw=true">
 
 This is a design mockup of the project created using Figma. It includes event interaction details for front-end and back-end consistency. 
  
