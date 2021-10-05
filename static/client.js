@@ -13,7 +13,7 @@ form.addEventListener("click", (event) => {
   if (email.value) {
     socket.emit("player_ready", email.value);
     //store player email somewhere
-    // form.style.display = "none";
+    form.style.display = "none";
   }
 });
 
