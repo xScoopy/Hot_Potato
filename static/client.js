@@ -39,6 +39,12 @@ socket.on("welcome_user", () => {
     alerts.appendChild(item)
 })
 
+// socket.on("disconnect", () => {
+//     let item = document.createElement("li")
+//     item.textContent = "A player has disconnected"
+//     alerts.appendChild(item)
+// })
+
 // // Listen for "new user" socket emits
 // socket.on('new user', (username) => {
 //   //Save the username as key to access the user's socket id
