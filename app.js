@@ -54,6 +54,10 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     io.emit("user_disconnect");
   });
+
+  socket.on("potato_on", () => {
+      socket.broadcast.emit("potato_on")
+  })
 });
 
 server.listen(3000, () => {

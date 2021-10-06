@@ -7,6 +7,7 @@ let readyButton = document.getElementById("ready-button");
 let email = document.getElementById("email");
 let alerts = document.getElementById("alerts");
 let taterDiv = document.getElementById("tater-div")
+let passButton = document.getElementById("pass-button")
 
 // Event Listeners
 form.addEventListener("click", (event) => {
@@ -17,6 +18,13 @@ form.addEventListener("click", (event) => {
     form.style.display = "none";
   }
 });
+
+passButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    taterDiv.style.visibility = "hidden"
+    socket.emit("potato_on")
+    
+})
 
 socket.on("player_join", () => {
   //send a message to alerts
@@ -47,6 +55,7 @@ socket.on("total_ready", (readyPlayers) => {
 
 socket.on("potato_on", () => {
     taterDiv.style.visibility = "visible"
+    console.log("Received potato")
 })
 
 socket.on("max_players", (readyPlayers) => {
@@ -55,10 +64,10 @@ socket.on("max_players", (readyPlayers) => {
     alerts.append(item)
 })
 
-socket.on("pass_potato", () => {
-    taterDiv.style.visibility = "hidden"
-    socket.broadcast.emit("potato_on")
-})
+// socket.on("pass_potato", () => {
+//     taterDiv.style.visibility = "hidden"
+//     socket.broadcast.emit("potato_on")
+// })
 
 // socket.on("timer_start", () => {
 //   //send a message to alerts
