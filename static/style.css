@@ -52,6 +52,13 @@
     overflow: hidden;
     padding: 10px;
 }
+
+.announcement {
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+}
+
 .button-holder {
     text-align: center;
 }

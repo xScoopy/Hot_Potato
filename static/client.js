@@ -7,6 +7,7 @@ let readyButton = document.getElementById("ready-button");
 let email = document.getElementById("email");
 let alerts = document.getElementById("alerts");
 let taterDiv = document.getElementById("tater-div")
+let announcement = document.getElementById("announcement")
 let passButton = document.getElementById("pass-button")
 let outcome = document.getElementById("game-outcome")
 
@@ -22,6 +23,7 @@ form.addEventListener("click", (event) => {
 passButton.addEventListener("click", (event) => {
     event.preventDefault();
     taterDiv.style.visibility = "hidden"
+    announcement.style.visibility = "visible"
     socket.emit("potato_on")
     
 })
@@ -55,6 +57,7 @@ socket.on("total_ready", (readyPlayers) => {
 
 socket.on("potato_on", () => {
     taterDiv.style.visibility = "visible"
+    announcement.style.visibility = "hidden"
     console.log("Received potato")
 })
 
