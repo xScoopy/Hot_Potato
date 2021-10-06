@@ -55,6 +55,11 @@ socket.on("max_players", (readyPlayers) => {
     alerts.append(item)
 })
 
+socket.on("pass_potato", () => {
+    taterDiv.style.visibility = "hidden"
+    socket.broadcast.emit("potato_on")
+})
+
 // socket.on("timer_start", () => {
 //   //send a message to alerts
 //   let item = document.createElement("li")
