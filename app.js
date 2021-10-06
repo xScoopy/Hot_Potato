@@ -38,14 +38,16 @@ io.on("connection", (socket) => {
             io.emit("max_players", readyPlayers)
         } else {
             readyPlayers["PlayerTwo"] = email
+            socket.info = email
             socket.broadcast.emit("potato_on")
             io.emit("total_ready", readyPlayers)
             setTimeout(function() {
-              console.log('Timer ended')
+              io.emit("timer_end")
             }, countdown);
         } 
     } else {
         readyPlayers["PlayerOne"] = email
+        socket.info = email
         io.emit("total_ready", readyPlayers)
     }
   });
@@ -54,10 +56,15 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     io.emit("user_disconnect");
   });
-
+  //turn on potato div for player holding potato
   socket.on("potato_on", () => {
       socket.broadcast.emit("potato_on")
   })
+  //send email to loser's email
+  socket.on("game_loser", (email) => {
+    console.log(email)
+  })
+
 });
 
 server.listen(3000, () => {

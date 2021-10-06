@@ -8,13 +8,13 @@ let email = document.getElementById("email");
 let alerts = document.getElementById("alerts");
 let taterDiv = document.getElementById("tater-div")
 let passButton = document.getElementById("pass-button")
+let outcome = document.getElementById("game-outcome")
 
 // Event Listeners
 form.addEventListener("click", (event) => {
   event.preventDefault();
   if (email.value) {
     socket.emit("player_ready", email.value);
-    //store player email somewhere
     form.style.display = "none";
   }
 });
@@ -64,6 +64,18 @@ socket.on("max_players", (readyPlayers) => {
     alerts.append(item)
 })
 
+socket.on("timer_end", () => {
+  if (taterDiv.style.visibility == "visible") {
+    document.getElementById("pass-button").disabled = true;
+    outcome.textContent = "You Lose D:"
+    socket.emit("game_loser", socket.info)
+  } else {
+    outcome.textContent = "You Win!"
+  }
+  let item = document.createElement("li");
+  item.textContent = "The game is over"
+  alerts.append(item)
+})
 // socket.on("pass_potato", () => {
 //     taterDiv.style.visibility = "hidden"
 //     socket.broadcast.emit("potato_on")
@@ -76,9 +88,3 @@ socket.on("max_players", (readyPlayers) => {
 //   alerts.append(item)
 // });
 
-// socket.on("timer_end", () => {
-//   //send a message to alerts
-//   let item = document.createElement("li")
-//   item.textContent = "Game over!"
-//   alerts.append(item)
-// });

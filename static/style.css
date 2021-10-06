@@ -1,6 +1,10 @@
 .main-title {
     text-align: center;
 }
+#game-outcome {
+    text-align: center;
+}
+
 .top-area {
     overflow: hidden;
     padding: 10px;
