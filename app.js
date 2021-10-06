@@ -61,8 +61,8 @@ io.on("connection", (socket) => {
       socket.broadcast.emit("potato_on")
   })
   //send email to loser's email
-  socket.on("game_loser", (email) => {
-    console.log(email)
+  socket.on("game_loser", () => {
+    console.log(socket.info)
   })
 
 });
