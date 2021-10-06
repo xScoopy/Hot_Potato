@@ -6,6 +6,7 @@ let form = document.getElementById("form");
 let readyButton = document.getElementById("ready-button");
 let email = document.getElementById("email");
 let alerts = document.getElementById("alerts");
+let taterDiv = document.getElementById("tater-div")
 
 // Event Listeners
 form.addEventListener("click", (event) => {
@@ -42,6 +43,10 @@ socket.on("total_ready", (readyPlayers) => {
     let item = document.createElement("li");
     item.textContent = Object.keys(readyPlayers).length + " player(s) ready to play!"
     alerts.append(item) 
+})
+
+socket.on("potato_on", () => {
+    taterDiv.style.visibility = "visible"
 })
 
 socket.on("max_players", (readyPlayers) => {

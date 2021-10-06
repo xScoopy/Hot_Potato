@@ -38,6 +38,7 @@ io.on("connection", (socket) => {
             io.emit("max_players", readyPlayers)
         } else {
             readyPlayers["PlayerTwo"] = email
+            socket.broadcast.emit("potato_on")
             io.emit("total_ready", readyPlayers)
             setTimeout(function() {
               console.log('Timer ended')
