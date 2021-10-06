@@ -38,17 +38,16 @@ socket.on("user_disconnect", () => {
   alerts.appendChild(item);
 });
 
-socket.on("player_ready", (email, playersReady) => {
-  //send a message to alerts
-  let item = document.createElement("li");
-  item.textContent = email + " is ready!";
-  alerts.append(item);
-});
-
 socket.on("total_ready", (readyPlayers) => {
     let item = document.createElement("li");
-    item.textContent = readyPlayers.length + " player(s) ready to play!"
+    item.textContent = Object.keys(readyPlayers).length + " player(s) ready to play!"
     alerts.append(item) 
+})
+
+socket.on("max_players", (readyPlayers) => {
+    let item = document.createElement("li");
+    item.textContent = readyPlayers["PlayerOne"] + " and " + readyPlayers["PlayerTwo"] + " are already readied up."
+    alerts.append(item)
 })
 
 // socket.on("timer_start", () => {
