@@ -12,6 +12,19 @@ app.use("/static", express.static("./static"));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/static/index.html");
 });
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  }
+
+var countdown = getRandomIntInclusive(20000,40000);
+// setTimeout(function() {
+//     console.log('Timer ended')
+// }, countdown);
+  
+
 const readyPlayers = {}
 io.on("connection", (socket) => {
   //initial emissions
@@ -26,6 +39,9 @@ io.on("connection", (socket) => {
         } else {
             readyPlayers["PlayerTwo"] = email
             io.emit("total_ready", readyPlayers)
+            setTimeout(function() {
+              console.log('Timer ended')
+            }, countdown);
         } 
     } else {
         readyPlayers["PlayerOne"] = email
