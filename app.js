@@ -62,6 +62,7 @@ io.on("connection", (socket) => {
   })
   //send email to loser's email
   socket.on("game_loser", () => {
+    //Send email to socket.info <- this will be the email of the loser
     console.log(socket.info)
   })
 
