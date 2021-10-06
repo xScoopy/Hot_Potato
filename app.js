@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
-
+require('dotenv').config();
+const mailer = require('./utils/mailer')
+const API_KEY = process.env.MAILGUN_API_KEY
+const DOMAIN = process.env.EMAIL_DOMAIN
+// const mailgun = require('mailgun-js')({apiKey: API_KEY, domain: DOMAIN})
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -19,10 +23,8 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
   }
 
-var countdown = getRandomIntInclusive(20000,40000);
-// setTimeout(function() {
-//     console.log('Timer ended')
-// }, countdown);
+var countdown = getRandomIntInclusive(15000,20000);
+
   
 
 const readyPlayers = {}
@@ -62,8 +64,16 @@ io.on("connection", (socket) => {
   })
   //send email to loser's email
   socket.on("game_loser", () => {
-    //Send email to socket.info <- this will be the email of the loser
-    console.log(socket.info)
+    // const data = {
+    //   from: 'no-reply@example.com',
+    //   to: socket.info,
+    //   subject: 'You lost bruv',
+    //   text: 'Just a friendly reminder that you lost that game of hot potato earlier. Try not to get too down on yourself scrub.'
+    // }
+    // mailgun.messages().send(data, (error, body) => {
+    //   console.log(body)
+    // })
+    mailer.sendMail(socket.info)
   })
 
 });
