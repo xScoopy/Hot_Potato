@@ -10,7 +10,8 @@
     padding: 10px;
 }
 .alerts {
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
+    background-color: black;
     float: left;
     width: 30%;
     display: flex;
@@ -61,4 +62,8 @@
 
 .button-holder {
     text-align: center;
+}
+body{
+    background-color: black;
+    color: white;
 }
